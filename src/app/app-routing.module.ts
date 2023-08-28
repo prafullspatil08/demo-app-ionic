@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './services/auth.guard';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: '', pathMatch:'full', redirectTo:'login'},
   {
     path: 'dashboard',

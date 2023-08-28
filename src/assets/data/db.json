@@ -1,0 +1,132 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "aman",
+      "email": "amanpatil@gmail.com",
+      "mobile": "8482850810",
+      "password": "Aman@123"
+    },
+    {
+      "firstName": "aman",
+      "mobile": "9973577871",
+      "email": "aman@gmail.com",
+      "password": "Aman@2123",
+      "id": 2
+    },
+    {
+      "firstName": "Prafull",
+      "email": "prafull@gmail.com",
+      "password": "Aman@123",
+      "mobile": "8482850810",
+      "id": 3
+    }
+  ],
+  "shows": [
+    {
+      "id": 2,
+      "name": "Bhediya",
+      "totalTime": "2h",
+      "date": "2022-11-18",
+      "type": "movie",
+      "language": "hindi",
+      "location": "pune",
+      "price": 210,
+      "image": "http://upload.wikimedia.org/wikipedia/en/2/29/Bhediya_film_poster.jpg",
+      "genre": "Thriller/Horror",
+      "about": "Bhaskar finds himself changing after being bitten by a wolf in the forests of Arunachal. While Bhaskar begins to transform into a shape-shifting werewolf, he and his friends look for answers amid many twists, turns and laughs."
+    },
+    {
+      "id": 4,
+      "name": "Drishyam 2",
+      "totalTime": "2h 30min",
+      "date": "2022-11-18",
+      "type": "movie",
+      "language": "hindi",
+      "location": "pune",
+      "price": 250,
+      "image": "http://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/drishyam-2-et00331997-1667547668.jpg",
+      "genre": "Drama/Crime Film/MyStery",
+      "about": "7 years after the case related to Vijay Salgaonkar and his family was closed, a series of unexpected events bring a truth to light that threatens to change everything for the Salgaonkars. Can Vijay save his family this time?"
+    },
+    {
+      "id": 11,
+      "name": "Charchaughi",
+      "totalTime": "2h 45min",
+      "date": "2021-11-29",
+      "type": "play",
+      "language": "marathi",
+      "location": "pune",
+      "price": 200,
+      "image": "http://www.mumbaitheatreguide.com/dramas/reviews/images/charchaughi.jpg",
+      "genre": "Drama",
+      "about": "'Charchaughi’ is a journey of four women who have shaken off the bondage of a patriarchal society and are moving along the path of realization of their personalities. The play is Written by Prashant Dalvi and directed by Chandrakant Kulkarni. This proved to be a big hit and created history in the decade 1990-2000. It is still considered a milestone in Marathi Theatre."
+    },
+    {
+      "id": 12,
+      "name": "Black Panther: Wakanda Forever",
+      "totalTime": "2h 44min",
+      "date": "2022-11-11",
+      "type": "movie",
+      "language": "English/Hindi/Tamil",
+      "location": "pune",
+      "price": 350,
+      "image": "http://static.toiimg.com//photo/94990094/94990094.jpg?imgsize=92718",
+      "genre": "Action/Drama/Adventure",
+      "about": "In the wake of King T`Challa`s death, Queen Ramonda, Shuri, M`Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers with the help of War Dog Nakia and Everett Ross to forge a new path for the kingdom of Wakanda."
+    },
+    {
+      "id": 13,
+      "name": "Tu Mhanshil Tasa",
+      "totalTime": "2h 15min",
+      "date": "2022-12-11",
+      "type": "play",
+      "language": "Marathi",
+      "location": "pune",
+      "price": 150,
+      "image": "http://static.toiimg.com/photo/msid-72297772/72297772.jpg",
+      "genre": "Drama",
+      "about": "The play is about couple who got married 2 years ago.We always see that there is basic differences of nature between all the couples by the virtue of which day to day situations get wired and sometimes funny too.."
+    },
+    {
+      "id": 14,
+      "name": "You Must Die",
+      "totalTime": "2h 15min",
+      "date": "2022-12-18",
+      "type": "play",
+      "language": "Marathi",
+      "location": "pune",
+      "price": 150,
+      "image": "http://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-600,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:ote-RnJpLCAyIERlYw%3D%3D,ots-29,otc-FFFFFF,oy-612,ox-24:q-80/et00343907-htmywgssvr-portrait.jpg",
+      "genre": "Suspense, Triller",
+      "about": "A foggy night, a fateful accident and a stranger enters a secluded house. He approaches the man of the house to seek help, but discovers something far more sinister. The stranger finds himself embroiled in the site of freshly committed murder. He resolves to stay there and help the vulnerable lady of the house. But as the night wears on, the plot thickens. Will he be able to find the murderer, or will he perish in the maze of lies that is the house?"
+    }
+  ],
+  "bookings": [
+    {
+      "name": "sanket",
+      "email": "sany@gmail.com",
+      "mobile": "8484848484",
+      "reserved": [
+        "A3"
+      ],
+      "showId": 2,
+      "showName": "Bhediya",
+      "showDate": "2022-11-18",
+      "id": 2
+    },
+    {
+      "name": "aman",
+      "email": "amanpatil@gmail.com",
+      "mobile": "8482850810",
+      "reserved": [
+        "A1",
+        "A2"
+      ],
+      "showId": 2,
+      "showName": "Bhediya",
+      "showDate": "2022-11-18",
+      "id": 3
+    }
+  ]
+}

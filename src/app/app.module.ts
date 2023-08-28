@@ -10,8 +10,9 @@ import { SharedModule } from './shared/shared.module';
 import {HttpClientModule} from '@angular/common/http'
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './signup/signup.component';
 @NgModule({
-  declarations: [AppComponent,LoginComponent],
+  declarations: [AppComponent,LoginComponent,SignupComponent],
   imports: [BrowserModule, FormsModule,ReactiveFormsModule,IonicModule.forRoot(), AppRoutingModule, SharedModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

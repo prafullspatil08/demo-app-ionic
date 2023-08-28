@@ -17,4 +17,8 @@ export class LoginService {
   updateUser(payload:any){
     return this.http.put(APIEndPoint.ENDPOINT_URL + payload?.id , payload);
   }
+
+  saveUser(payload:any){
+    return this.http.post(APIEndPoint.ENDPOINT_URL , payload);
+  }
 }

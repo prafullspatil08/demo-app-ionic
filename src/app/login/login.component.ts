@@ -77,6 +77,14 @@ export class LoginComponent implements OnInit {
         }
       );
 
+    }else{
+      const toast = await this.toastController.create({
+        message: ' Emter Valid Detail',
+        duration: 600,
+        position: 'bottom',
+        color: 'danger',
+      });
+      await toast.present();
     }
   }
 }
