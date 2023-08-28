@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>US State List</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="padding: 20px;">
+    <ion-list>
+      <ion-item *ngFor="let item of us_state_list; let index">
+        <ion-avatar slot="start">
+          <img [src]="'https://picsum.photos/80/80?random=' + index" alt="avatar" />
+        </ion-avatar>
+        <ion-label>{{ item.stateName }}</ion-label>
+      </ion-item>
+    </ion-list>
+   
+  </div>
+</ion-content>

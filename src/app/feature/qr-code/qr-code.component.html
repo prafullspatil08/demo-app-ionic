@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>QR Code</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content-center">
+    <div class="text-center">
+      <qrcode
+        (qrCodeURL)="onChangeURL($event)"
+        [qrdata]="qrCodeString"
+        [width]="300"
+        [errorCorrectionLevel]="'M'"
+      ></qrcode>
+      <a [href]="qrCodeLink" download="qrcode"><ion-button>Download</ion-button></a>
+    </div>
+  </div>
+</ion-content>
