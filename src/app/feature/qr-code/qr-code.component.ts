@@ -14,7 +14,6 @@ export class QrCodeComponent  implements OnInit {
 
   ngOnInit() {
     this.user=JSON.parse(localStorage.getItem('user'))
-    console.log('this.user: ', this.user)
     this.qrCodeString = this.user?.email
   }
 

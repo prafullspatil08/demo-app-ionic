@@ -11,7 +11,6 @@ export class ListViewComponent  implements OnInit {
   constructor() { }
   
   ngOnInit() {
-    console.log('us_state_list: ', this.us_state_list)
 
   }
 
