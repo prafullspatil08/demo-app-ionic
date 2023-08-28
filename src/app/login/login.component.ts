@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.status === 'VALID') {
       this.loginService.getUserList().subscribe(
         async (res: any) => {
-          let response = res.users;
+          let response = res;
           const user = response?.find((a: any) => {
             localStorage.setItem('user', JSON.stringify(a))
             return (
@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
             );
           });
           if (user) {
+            this.loginService.isLoggedIn.next(true)
             const toast = await this.toastController.create({
               message: 'Login Successfully',
               duration: 600,
