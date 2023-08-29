@@ -17,14 +17,14 @@
         <div class="form-group">
           <ion-input
             type="password"
-            label="password"
+            label="Password"
             formControlName="password"
             labelPlacement="floating"
             errorText="Invalid password"
           ></ion-input>
         </div>
         <div class="text-center">
-          <ion-button (click)="login()" shape="round">Login</ion-button>
+          <ion-button [disabled]='!loginForm.valid' (click)="login()" shape="round">Login</ion-button>
           <div>
             <a routerLink="/signup">Create new account</a>
           </div>

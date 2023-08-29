@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
+import { EMAIL_PATTERN, PASS_PATTERN } from '../_miscellaneous/pattern';
 
 @Component({
   selector: 'app-login',
@@ -21,10 +22,14 @@ export class LoginComponent implements OnInit {
     this.initializeLoginForm();
   }
 
+  get form() {
+    return this.loginForm.controls;
+  }
+
   initializeLoginForm() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.pattern(EMAIL_PATTERN)]),
+      password: new FormControl('', [Validators.required,Validators.pattern(PASS_PATTERN)]),
     });
   }
 
