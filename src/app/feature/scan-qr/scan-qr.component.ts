@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { AlertController } from '@ionic/angular';
 
@@ -7,13 +7,13 @@ import { AlertController } from '@ionic/angular';
   templateUrl: './scan-qr.component.html',
   styleUrls: ['./scan-qr.component.scss'],
 })
-export class ScanQrComponent  implements OnInit {
+export class ScanQrComponent  implements OnInit, OnDestroy {
   isSupported = false;
   scannedQRResult: any;
   constructor() { }
 
   ngOnInit() {
-    this.startScan();
+    // this.startScan();
   }
 
   async startScan() {

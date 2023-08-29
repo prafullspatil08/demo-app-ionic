@@ -38,3 +38,7 @@
 .form-group{
     margin-bottom: 10px;
 }
+body.scanner-active {
+  --background: transparent;
+  --ion-background-color: transparent;
+}
