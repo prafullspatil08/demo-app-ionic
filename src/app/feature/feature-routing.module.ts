@@ -21,10 +21,6 @@ const routes: Routes = [
         component: QrCodeComponent,
       },
       {
-        path: 'scan-qr',
-        component: ScanQrComponent,
-      },
-      {
         path: 'profile',
         component: ProfileComponent,
       },
