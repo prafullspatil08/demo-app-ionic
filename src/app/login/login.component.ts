@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 import { EMAIL_PATTERN, PASS_PATTERN } from '../_miscellaneous/pattern';
+import { usersData } from '../_miscellaneous/UserData';
 
 @Component({
   selector: 'app-login',
@@ -23,73 +24,59 @@ export class LoginComponent implements OnInit {
   }
 
   get form() {
-    return this.loginForm.controls;
+    return this.loginForm?.controls;
   }
 
   initializeLoginForm() {
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.pattern(EMAIL_PATTERN)]),
-      password: new FormControl('', [Validators.required,Validators.pattern(PASS_PATTERN)]),
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern(EMAIL_PATTERN),
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.pattern(PASS_PATTERN),
+      ]),
     });
   }
 
   get getEmail() {
-    return this.loginForm.controls['email'];
+    return this.loginForm?.controls['email'];
   }
 
   async login() {
-    if (this.loginForm.status === 'VALID') {
-      this.loginService.getUserList().subscribe(
-        async (res: any) => {
-          let response = res;
-          const user = response?.find((a: any) => {
-            localStorage.setItem('user', JSON.stringify(a))
-            return (
-              a.email === this.loginForm.value.email &&
-              a.password === this.loginForm.value.password
-            );
-          });
-          if (user) {
-            this.loginService.isLoggedIn.next(true)
-            const toast = await this.toastController.create({
-              message: 'Login Successfully',
-              duration: 600,
-              position: 'bottom',
-              color: 'success',
-            });
-            await toast.present();
-            
-            this.router.navigate(['/dashboard']);
-            this.loginForm.reset();
-          } else {
-            const toast = await this.toastController.create({
-              message: 'Invalid credentials !!!',
-              duration: 600,
-              position: 'bottom',
-              color: 'danger',
-            });
-            await toast.present();
-          }
-        },
-        async (error:any) => {
+    if (this.loginForm?.valid) {
+      this.loginService.usersData.subscribe(async (res: any) => {
+        let response = res;
+        const user = response?.find((a: any) => {
+          localStorage.setItem('user', JSON.stringify(a));
+          return (
+            a.email === this.loginForm?.value?.email &&
+            a.password === this.loginForm?.value?.password
+          );
+        });
+        if (user) {
+          this.loginService.isLoggedIn.next(true);
           const toast = await this.toastController.create({
-            message: error.message,
+            message: 'Login Successfully',
+            duration: 600,
+            position: 'bottom',
+            color: 'success',
+          });
+          await toast.present();
+
+          this.router.navigate(['/dashboard']);
+          this.loginForm.reset();
+        } else {
+          const toast = await this.toastController.create({
+            message: 'Invalid credentials !!!',
             duration: 600,
             position: 'bottom',
             color: 'danger',
           });
           await toast.present();
         }
-      );
-
-    }else{
-      const toast = await this.toastController.create({
-        message: ' Emter Valid Detail',
-        duration: 600,
-        position: 'bottom',
-        color: 'danger',
       });
-      await toast.present();
     }
   }
 }

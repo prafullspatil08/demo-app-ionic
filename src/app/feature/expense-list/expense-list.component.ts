@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-todo-list',
-  templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.scss'],
+  templateUrl: './expense-list.component.html',
+  styleUrls: ['./expense-list.component.scss'],
 })
-export class TodoListComponent implements OnInit {
+export class ExpenseListComponent implements OnInit {
   todoForm: FormGroup;
   today = new Date();
   todoList = [
@@ -39,9 +40,9 @@ export class TodoListComponent implements OnInit {
   }
 
   async addExpenseForm() {
-    if (this.todoForm.status === 'VALID') {
+    if (this.todoForm?.valid) {
       let payload = {
-        ...this.todoForm.value,
+        ...this.todoForm?.value,
         id:Math.random().toString()
       };
       this.todoList.push(payload);
@@ -65,15 +66,16 @@ export class TodoListComponent implements OnInit {
   }
 
   deleteItem(id:any){
-    this.todoList= this.todoList.filter((item)=> item.id != id)
+    this.todoList= this.todoList?.filter((item)=> item?.id != id)
   }
 
   editItem(id:any){
-    this.todoList= this.todoList.filter((item)=> item.id == id)
+    this.todoList= this.todoList?.filter((item)=> item?.id == id)
     this.todoForm.patchValue(this.todoList[0])
   }
 
   cancel(){
     this.todoForm.reset();
   }
+
 }

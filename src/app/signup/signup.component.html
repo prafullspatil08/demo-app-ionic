@@ -10,7 +10,7 @@
             type="text"
             label="First Name"
             labelPlacement="floating"
-            errorText="Invalid email"
+            errorText="Invalid First Name"
             formControlName="firstName"
           ></ion-input>
         </div>
@@ -42,7 +42,7 @@
           ></ion-input>
         </div>
         <div class="text-center">
-          <ion-button (click)="signup()" shape="round">Create New Account</ion-button>
+          <ion-button [disabled]="!signupForm?.valid" (click)="signup()" shape="round">Create New Account</ion-button>
           <div>
             <a routerLink="/login">back to login</a>
           </div>

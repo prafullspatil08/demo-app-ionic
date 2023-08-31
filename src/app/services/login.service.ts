@@ -2,12 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { APIEndPoint } from '../_miscellaneous/ApiEndPoint';
 import { BehaviorSubject } from 'rxjs';
+import { usersData } from '../_miscellaneous/UserData';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   isLoggedIn = new BehaviorSubject<boolean>(false)
+  usersData = new BehaviorSubject<any>(usersData)
   constructor(private http: HttpClient) { }
 
   getUserList(){

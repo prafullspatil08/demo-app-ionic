@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { QrCodeComponent } from './qr-code/qr-code.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
+import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { NfcComponent } from './nfc/nfc.component';
 const routes: Routes = [
   {
@@ -20,8 +20,8 @@ const routes: Routes = [
         component: QrCodeComponent,
       },
       {
-        path: 'todo-list',
-        component: TodoListComponent,
+        path: 'expense-list',
+        component: ExpenseListComponent,
       },
       {
         path: 'gallery',

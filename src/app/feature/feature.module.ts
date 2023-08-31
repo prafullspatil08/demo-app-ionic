@@ -10,7 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
-import { TodoListComponent } from './todo-list/todo-list.component';
+import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { NfcComponent } from './nfc/nfc.component';
 
 @NgModule({
@@ -27,7 +27,7 @@ import { NfcComponent } from './nfc/nfc.component';
     QrCodeComponent,
     DashboardComponent,
     PhotoGalleryComponent,
-    TodoListComponent,
+    ExpenseListComponent,
     NfcComponent
   ],
 })

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title> Todo List </ion-title>
+    <ion-title>Add Expense </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content style="overflow: hidden;">
@@ -50,10 +50,10 @@
     <ion-list [inset]="true" *ngFor="let todo of todoList">
       <ion-item>
         <ion-item style="border-radius: 20px;" slot="start"  color="secondary">
-          {{ todo.date | date : "mediumDate" }}
+          {{ todo?.date | date : "mediumDate" }}
         </ion-item>
-        <ion-label>{{ todo.title }}</ion-label>
-        <ion-label slot="end">${{ todo.amount }}</ion-label>
+        <ion-label>{{ todo?.title }}</ion-label>
+        <ion-label slot="end">${{ todo?.amount }}</ion-label>
         <ion-button color="primary" slot='end' (click)="editItem(todo?.id)"><ion-icon name="create-outline"></ion-icon></ion-button>
         <ion-button color="danger" slot='end' (click)="deleteItem(todo?.id)"><ion-icon name="trash-outline"></ion-icon></ion-button>
       </ion-item>
