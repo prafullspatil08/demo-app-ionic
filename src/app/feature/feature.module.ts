@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { NfcComponent } from './nfc/nfc.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { TodoListComponent } from './todo-list/todo-list.component';
     QrCodeComponent,
     DashboardComponent,
     PhotoGalleryComponent,
-    TodoListComponent
+    TodoListComponent,
+    NfcComponent
   ],
 })
 export class FeatureModule {}
