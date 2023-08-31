@@ -5,7 +5,7 @@
 </ion-header>
 <ion-content style="overflow: hidden;">
   <ion-grid>
-    <form [formGroup]="todoForm">
+    <form [formGroup]="expenseForm">
       <ion-row>
         <ion-col size="6">
           <ion-input
@@ -47,8 +47,8 @@
     </form>
   </ion-grid>
   <ion-content>
-      <div *ngIf="todoList?.length === 0" class="text-center">No Expenses</div>
-    <ion-list [inset]="true" *ngFor="let todo of todoList">
+      <div *ngIf="expenseList?.length === 0" class="text-center">No Expenses</div>
+    <ion-list [inset]="true" *ngFor="let todo of expenseList">
       <ion-item>
         <ion-item style="border-radius: 20px;" slot="start"  color="secondary">
           {{ todo?.date | date : "mediumDate" }}

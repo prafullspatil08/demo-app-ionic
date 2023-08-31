@@ -9,9 +9,9 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./expense-list.component.scss'],
 })
 export class ExpenseListComponent implements OnInit {
-  todoForm: FormGroup;
+  expenseForm: FormGroup;
   today = new Date();
-  todoList = [
+  expenseList = [
     {
       id:'1',
       title: 'Toilet Paper',
@@ -32,7 +32,7 @@ export class ExpenseListComponent implements OnInit {
   }
 
   initializeForm() {
-    this.todoForm = new FormGroup({
+    this.expenseForm = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.min(1)]),
       amount: new FormControl(null, [Validators.required]),
       date: new FormControl('', [Validators.required]),
@@ -40,12 +40,12 @@ export class ExpenseListComponent implements OnInit {
   }
 
   async addExpenseForm() {
-    if (this.todoForm?.valid) {
+    if (this.expenseForm?.valid) {
       let payload = {
-        ...this.todoForm?.value,
+        ...this.expenseForm?.value,
         id:Math.random().toString()
       };
-      this.todoList.push(payload);
+      this.expenseList.push(payload);
       const toast = await this.toastController.create({
         message: ' Added Expense',
         duration: 600,
@@ -53,7 +53,7 @@ export class ExpenseListComponent implements OnInit {
         color: 'success',
       });
       await toast.present();
-      this.todoForm.reset();
+      this.expenseForm.reset();
     } else {
       const toast = await this.toastController.create({
         message: ' Enter Valid Detail',
@@ -73,7 +73,7 @@ export class ExpenseListComponent implements OnInit {
         role: 'destructive',
         icon: 'trash',
         handler: () => {
-          this.todoList= this.todoList?.filter((item)=> item?.id != id)
+          this.expenseList= this.expenseList?.filter((item)=> item?.id != id)
         }
       }, {
         text: 'Cancel',
@@ -88,12 +88,12 @@ export class ExpenseListComponent implements OnInit {
   }
 
   editItem(id:any){
-    this.todoList= this.todoList?.filter((item)=> item?.id == id)
-    this.todoForm.patchValue(this.todoList[0])
+    this.expenseList= this.expenseList?.filter((item)=> item?.id == id)
+    this.expenseForm.patchValue(this.expenseList[0])
   }
 
   cancel(){
-    this.todoForm.reset();
+    this.expenseForm.reset();
   }
 
 }
