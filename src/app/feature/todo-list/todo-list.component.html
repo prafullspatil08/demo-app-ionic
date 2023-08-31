@@ -1,3 +1,29 @@
-<p>
-  todo-list works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Todo List </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+ <ion-grid>
+   <form [formGroup]="todoForm">
+  <ion-row>
+    <ion-col size="6">
+      <ion-input label="Title" formControlName="title" type="text" label-placement="floating" fill="outline" placeholder="Enter Title"></ion-input>
+    </ion-col>
+    <ion-col size="6">
+      <ion-input label="Amount" formControlName="amount" type="number" min="0" label-placement="floating" fill="outline" placeholder="Enter Amount"></ion-input>
+    </ion-col>
+    <ion-col size="6">
+      <ion-input type="date" label="Date" formControlName="date" label-placement="floating" fill="outline"></ion-input>
+    </ion-col>
+    <ion-col size="6">
+
+    </ion-col>
+    <ion-col col="6">
+      <ion-button (click)="addExpenseForm()">Add Expense</ion-button>
+      <ion-button>Cancel</ion-button>
+    </ion-col>
+  </ion-row>
+</form>
+ </ion-grid>
+</ion-content>
