@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ToastController } from '@ionic/angular';
+import { ActionSheetController, ToastController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class ExpenseListComponent implements OnInit {
       date: '2020-12-12',
     },
   ];
-  constructor(private toastController: ToastController) {}
+  constructor(private toastController: ToastController,private actionSheetController: ActionSheetController) {}
 
   ngOnInit() {
     this.initializeForm();
@@ -65,8 +65,26 @@ export class ExpenseListComponent implements OnInit {
     }
   }
 
-  deleteItem(id:any){
-    this.todoList= this.todoList?.filter((item)=> item?.id != id)
+ async deleteItem(id:any){
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Expense Delete',
+      buttons: [{
+        text: 'Delete',
+        role: 'destructive',
+        icon: 'trash',
+        handler: () => {
+          this.todoList= this.todoList?.filter((item)=> item?.id != id)
+        }
+      }, {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          // Nothing to do, action sheet is automatically closed
+         }
+      }]
+    });
+    await actionSheet.present();
   }
 
   editItem(id:any){
