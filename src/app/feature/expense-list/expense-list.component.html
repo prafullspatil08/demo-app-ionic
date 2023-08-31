@@ -47,6 +47,7 @@
     </form>
   </ion-grid>
   <ion-content>
+      <div *ngIf="todoList?.length === 0" class="text-center">No Expenses</div>
     <ion-list [inset]="true" *ngFor="let todo of todoList">
       <ion-item>
         <ion-item style="border-radius: 20px;" slot="start"  color="secondary">
