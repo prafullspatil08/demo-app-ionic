@@ -9,8 +9,8 @@ import { QrCodeComponent } from './qr-code/qr-code.component';
 import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { QRCodeModule } from 'angularx-qrcode';
-import { ListViewComponent } from './list-view/list-view.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 
 @NgModule({
   imports: [
@@ -25,8 +25,8 @@ import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
   declarations: [
     QrCodeComponent,
     DashboardComponent,
-    ListViewComponent,
-    PhotoGalleryComponent
+    PhotoGalleryComponent,
+    TodoListComponent
   ],
 })
 export class FeatureModule {}

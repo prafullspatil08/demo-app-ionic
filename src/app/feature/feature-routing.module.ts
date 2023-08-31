@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { QrCodeComponent } from './qr-code/qr-code.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ListViewComponent } from './list-view/list-view.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,8 +19,8 @@ const routes: Routes = [
         component: QrCodeComponent,
       },
       {
-        path: 'list-view',
-        component: ListViewComponent,
+        path: 'todo-list',
+        component: TodoListComponent,
       },
       {
         path: 'gallery',
