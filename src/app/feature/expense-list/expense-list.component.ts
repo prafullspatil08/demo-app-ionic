@@ -67,7 +67,7 @@ export class ExpenseListComponent implements OnInit {
 
  async deleteItem(id:any){
     const actionSheet = await this.actionSheetController.create({
-      header: 'Expense Delete',
+      header: 'Are you sure you want to delete this expense?',
       buttons: [{
         text: 'Delete',
         role: 'destructive',
