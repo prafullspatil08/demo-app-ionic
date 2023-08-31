@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { QrCodeComponent } from './qr-code/qr-code.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ListViewComponent } from './list-view/list-view.component';
+import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 const routes: Routes = [
   {
     path: '',
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'list-view',
         component: ListViewComponent,
+      },
+      {
+        path: 'gallery',
+        component: PhotoGalleryComponent,
       },
     ],
   },

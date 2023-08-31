@@ -10,6 +10,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { ListViewComponent } from './list-view/list-view.component';
+import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ListViewComponent } from './list-view/list-view.component';
     QrCodeComponent,
     DashboardComponent,
     ListViewComponent,
+    PhotoGalleryComponent
   ],
 })
 export class FeatureModule {}
