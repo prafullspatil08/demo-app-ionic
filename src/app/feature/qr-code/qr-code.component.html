@@ -1,32 +1,58 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      QR Code
-    </ion-title>
+    <ion-title> QR Code </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [style.visibility]="content_visibility">
-
-  <ion-card class="ion-text-center">
+<ion-content id="main-content" [style.visibility]="content_visibility">
+  <div class="form-group" style="padding: 15px 10px">
+    <form [formGroup]="qrCodeForm">
+      <ion-input
+        type="text"
+        label="Qr Code"
+        formControlName="qrCodeString"
+        label-placement="floating"
+        fill="outline"
+      ></ion-input>
+      <ion-button (click)="generateQR()">Generate QR Code</ion-button>
+    </form>
+  </div>
+  <!-- <ion-card class="ion-text-center">
     <ion-card-content>
-      <qrcode 
-        [qrdata]="qrCodeString" 
-        [width]="256" 
-        [errorCorrectionLevel]="'M'">
+      <qrcode
+        [qrdata]="form.value.qrCodeString"
+        [width]="256"
+        [errorCorrectionLevel]="'M'"
+      >
       </qrcode>
     </ion-card-content>
-  </ion-card>
+  </ion-card> -->
 
-  <ion-button 
-    expand="block" 
-    class="ion-margin" 
-    (click)="startScan()">
+  <ion-button expand="block" class="ion-margin" (click)="startScan()">
     Scan QR Code
   </ion-button>
 
   <ion-item *ngIf="scannedQRResult">
-    <ion-label class="ion-text-wrap">Scanned Result: {{scannedQRResult}}</ion-label>
+    <ion-label class="ion-text-wrap"
+      >Scanned Result: {{ scannedQRResult }}</ion-label
+    >
   </ion-item>
-  
 </ion-content>
+
+<ion-menu side="end" contentId="main-content">
+  <ion-header>
+    <ion-back-button>Back</ion-back-button>
+    <ion-toolbar>
+      <ion-title>End Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content
+    ><ion-card-content>
+      <qrcode
+        [qrdata]="form.value.qrCodeString"
+        [width]="256"
+        [errorCorrectionLevel]="'M'"
+      >
+      </qrcode> </ion-card-content
+  ></ion-content>
+</ion-menu>

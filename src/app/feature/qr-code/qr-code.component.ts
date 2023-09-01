@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
+import { MenuController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-qr-code',
@@ -13,13 +15,37 @@ export class QrCodeComponent implements OnInit {
   public qrCodeLink: SafeUrl = '';
   scannedQRResult: any;
   content_visibility = '';
-  constructor() {}
+  qrCodeForm!:FormGroup;
+  constructor(private menuCtrl: MenuController, private toastController: ToastController) {}
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
-    this.qrCodeString = this.user?.email;
+    this.initializeForm();
   }
 
+  initializeForm(){
+    this.qrCodeForm = new FormGroup({
+      qrCodeString: new FormControl(this.user?.email,[Validators.required,Validators.minLength(2)])
+    })
+  }
+
+  async generateQR(){
+    if(this.qrCodeForm.valid ){
+      this.menuCtrl.open('end');
+    }else{
+      const toast = await this.toastController.create({
+        message: 'Please enter value to generate QR',
+        duration: 600,
+        position: 'bottom',
+        color: 'danger',
+      });
+      await toast.present();
+    }
+  }
+
+  get form(){
+    return this.qrCodeForm;
+  }
   onChangeURL(url: SafeUrl) {
     this.qrCodeLink = url;
   }
