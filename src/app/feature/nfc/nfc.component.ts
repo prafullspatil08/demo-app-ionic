@@ -11,4 +11,6 @@ export class NfcComponent  implements OnInit {
 
   ngOnInit() {}
 
+  scanNFC(){}
+
 }

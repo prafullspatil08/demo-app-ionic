@@ -6,6 +6,10 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-  
+<ion-content padding>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="scanNFC()">
+      <ion-icon name="scan-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
