@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title> QR Code </ion-title>
+    <ion-title><ion-icon name="qr-code-outline"></ion-icon> QR Code </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,12 +9,14 @@
     <form [formGroup]="qrCodeForm">
       <ion-input
         type="text"
-        label="Qr Code"
+        label="QR Code"
         formControlName="qrCodeString"
         label-placement="floating"
         fill="outline"
       ></ion-input>
-      <ion-button (click)="generateQR()">Generate QR Code</ion-button>
+      <div class="ion-text-end ion-margin-top">
+        <ion-button (click)="generateQR()">Generate QR Code</ion-button>
+      </div>
     </form>
   </div>
   <!-- <ion-card class="ion-text-center">
@@ -39,11 +41,11 @@
   </ion-item>
 </ion-content>
 
-<ion-menu side="end" contentId="main-content">
+<ion-menu side="end" menuId="qr-menu" contentId="main-content">
   <ion-header>
     <ion-back-button>Back</ion-back-button>
     <ion-toolbar>
-      <ion-title>QR Code</ion-title>
+      <ion-title><ion-icon name="qr-code-outline"></ion-icon> QR Code</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content
@@ -54,5 +56,7 @@
         [errorCorrectionLevel]="'M'"
       >
       </qrcode> </ion-card-content
-  ></ion-content>
+  >
+     <div class="ion-text-center"> <ion-button (click)="closeQR()">Cancel</ion-button></div>
+</ion-content>
 </ion-menu>

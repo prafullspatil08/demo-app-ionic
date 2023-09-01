@@ -25,12 +25,14 @@
         </div>
         <div class="form-group">
           <ion-input
-            type="password"
-            label="password"
+          [type]="!isShowPassword ? 'password' : 'text'"
+            label="Password"
             formControlName="password"
             labelPlacement="floating"
             errorText="Invalid password"
           ></ion-input>
+          <div class="hide-show-icon" *ngIf="!isShowPassword" (click)="showPassword()">Show Password</div>
+          <div class="hide-show-icon" *ngIf="isShowPassword" (click)="showPassword()">Hide Password</div>
         </div>
         <div class="form-group">
           <ion-input

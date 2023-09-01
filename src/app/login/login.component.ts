@@ -13,6 +13,7 @@ import { usersData } from '../_miscellaneous/UserData';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  isShowPassword:boolean = false;
   constructor(
     private toastController: ToastController,
     private loginService: LoginService,
@@ -78,5 +79,9 @@ export class LoginComponent implements OnInit {
         }
       });
     }
+  }
+
+  showPassword(){
+    this.isShowPassword = !this.isShowPassword
   }
 }

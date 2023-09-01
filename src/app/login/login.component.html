@@ -16,15 +16,23 @@
         </div>
         <div class="form-group">
           <ion-input
-            type="password"
+            [type]="!isShowPassword ? 'password' : 'text'"
             label="Password"
             formControlName="password"
             labelPlacement="floating"
             errorText="Invalid password"
-          ></ion-input>
+          >
+          </ion-input>
+          <div class="hide-show-icon" *ngIf="!isShowPassword" (click)="showPassword()">Show Password</div>
+          <div class="hide-show-icon" *ngIf="isShowPassword" (click)="showPassword()">Hide Password</div>
         </div>
         <div class="text-center cursor-pointer">
-          <ion-button [disabled]='!loginForm?.valid' (click)="login()" shape="round">Login</ion-button>
+          <ion-button
+            [disabled]="!loginForm?.valid"
+            (click)="login()"
+            shape="round"
+            >Login</ion-button
+          >
           <div>
             <a routerLink="/signup">Create new account</a>
           </div>

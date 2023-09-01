@@ -17,6 +17,7 @@ import {
 })
 export class SignupComponent implements OnInit {
   signupForm!: FormGroup;
+  isShowPassword:boolean = false;
   constructor(
     private loginService: LoginService,
     private toastController: ToastController,
@@ -81,5 +82,9 @@ export class SignupComponent implements OnInit {
       this.router.navigate(['/login']);
       this.signupForm.reset();
     }
+  }
+
+  showPassword(){
+    this.isShowPassword = !this.isShowPassword
   }
 }

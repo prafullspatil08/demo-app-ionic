@@ -31,6 +31,7 @@ export class QrCodeComponent implements OnInit {
 
   async generateQR(){
     if(this.qrCodeForm.valid ){
+      this.menuCtrl.enable(true, 'qr-menu');
       this.menuCtrl.open('end');
     }else{
       const toast = await this.toastController.create({
@@ -94,6 +95,10 @@ export class QrCodeComponent implements OnInit {
     BarcodeScanner.stopScan();
     document.querySelector('body').classList.remove('scanner-active');
     this.content_visibility = '';
+  }
+
+  closeQR(){
+    this.menuCtrl.close();
   }
 
   ngOnDestroy(): void {

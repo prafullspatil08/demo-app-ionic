@@ -12,23 +12,25 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { NfcComponent } from './nfc/nfc.component';
+import {Ndef, NFC} from '@ionic-native/nfc/ngx';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule.forRoot(),
     ReactiveFormsModule,
     FeaturePageRoutingModule,
     SharedModule,
     QRCodeModule,
   ],
+  providers: [NFC, Ndef],
   declarations: [
     QrCodeComponent,
     DashboardComponent,
     PhotoGalleryComponent,
     ExpenseListComponent,
-    NfcComponent
+    NfcComponent,
   ],
 })
 export class FeatureModule {}

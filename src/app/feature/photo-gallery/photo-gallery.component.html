@@ -2,6 +2,7 @@
   <ion-toolbar>
     <ion-back-button></ion-back-button>
     <ion-title>
+      <ion-icon name="images-outline"></ion-icon>
       Photo Gallery
     </ion-title>
   </ion-toolbar>
@@ -15,9 +16,18 @@
 
   <ion-grid>
     <ion-row>
-    <ion-col size="6" *ngFor="let photo of photoService?.photos; index as position">
-      <ion-img [src]="photo.webviewPath" (click)="showActionSheet(photo, position)"></ion-img>
-    </ion-col>
+      <ion-col *ngIf="photoService?.photos.length === 0">
+        <div class="ion-text-center mt-5">My gallery is empty.</div>
+      </ion-col>
+      <ion-col
+        size="6"
+        *ngFor="let photo of photoService?.photos; index as position"
+      >
+        <ion-img
+          [src]="photo.webviewPath"
+          (click)="showActionSheet(photo, position)"
+        ></ion-img>
+      </ion-col>
     </ion-row>
   </ion-grid>
 

@@ -35,16 +35,25 @@
   height: 100vh;
 }
 
-.form-group{
-    margin-bottom: 10px;
+.form-group {
+  margin-bottom: 10px;
 }
 body.scanner-active {
   --background: transparent;
   --ion-background-color: transparent;
 }
-ion-button{
+ion-button {
   cursor: pointer !important;
 }
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer !important;
+}
+.hide-show-icon {
+  text-align: end;
+  font-size: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.mt-5{
+  margin-top: 5px;
 }
