@@ -1,10 +1,10 @@
 export const usersData = [
     {
         "id": 1,
-        "name": "aman",
-        "email": "amanpatil@gmail.com",
+        "name": "admin",
+        "email": "admin@gmail.com",
         "mobile": "8482850810",
-        "password": "Aman@123"
+        "password": "Admin@123"
       },
       {
         "firstName": "aman",
