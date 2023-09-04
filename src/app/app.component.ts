@@ -1,4 +1,4 @@
-import { Component, Optional } from '@angular/core';
+import { Component, Optional, ViewChild } from '@angular/core';
 import { App } from '@capacitor/app';
 import { IonRouterOutlet, Platform } from '@ionic/angular';
 
@@ -8,12 +8,18 @@ import { IonRouterOutlet, Platform } from '@ionic/angular';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor(private platform: Platform,
-    @Optional() private routerOutlet?: IonRouterOutlet) {
-      this.platform.backButton.subscribeWithPriority(-1, () => {
-        if (!this.routerOutlet.canGoBack()) {
+  @ViewChild(IonRouterOutlet, { static: false }) routerOutlet: IonRouterOutlet;
+  constructor(private platform: Platform) {
+    this.backButtonEvent();
+  }
+
+  backButtonEvent() {
+    this.platform.backButton.subscribe(async (res) => {
+      if (this.routerOutlet && this.routerOutlet.canGoBack()) {
+        this.routerOutlet.pop();
+       } else {
           App.exitApp();
-        }
-      });
-    }
+       }
+    });
+  }
 }
