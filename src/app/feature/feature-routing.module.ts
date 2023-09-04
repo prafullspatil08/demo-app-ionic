@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { NfcComponent } from './nfc/nfc.component';
+import { ScanQrComponent } from './scan-qr/scan-qr.component';
 const routes: Routes = [
   {
     path: '',
@@ -30,6 +31,10 @@ const routes: Routes = [
       {
         path: 'nfc',
         component: NfcComponent,
+      },
+      {
+        path: 'scan-qr',
+        component: ScanQrComponent,
       },
     ],
   },

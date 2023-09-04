@@ -13,6 +13,7 @@ import { PhotoGalleryComponent } from './photo-gallery/photo-gallery.component';
 import { ExpenseListComponent } from './expense-list/expense-list.component';
 import { NfcComponent } from './nfc/nfc.component';
 import {Ndef, NFC} from '@ionic-native/nfc/ngx';
+import { ScanQrComponent } from './scan-qr/scan-qr.component';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import {Ndef, NFC} from '@ionic-native/nfc/ngx';
     PhotoGalleryComponent,
     ExpenseListComponent,
     NfcComponent,
+    ScanQrComponent
   ],
 })
 export class FeatureModule {}

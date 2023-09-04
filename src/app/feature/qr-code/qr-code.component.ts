@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { MenuController, ToastController, ViewDidLeave } from '@ionic/angular';
+import { ScanQrComponent } from '../scan-qr/scan-qr.component';
 
 @Component({
   selector: 'app-qr-code',
@@ -11,12 +13,13 @@ import { MenuController, ToastController, ViewDidLeave } from '@ionic/angular';
 })
 export class QrCodeComponent implements OnInit, ViewDidLeave {
   qrCodeString!: string;
+  component = ScanQrComponent;
   user: any;
   public qrCodeLink: SafeUrl = '';
   scannedQRResult: any;
   content_visibility = '';
   qrCodeForm!:FormGroup;
-  constructor(private menuCtrl: MenuController, private toastController: ToastController) {}
+  constructor(private menuCtrl: MenuController, private toastController: ToastController, private router: Router) {}
   ionViewDidLeave(): void {
     this.stopScan();
   }
@@ -69,28 +72,30 @@ export class QrCodeComponent implements OnInit, ViewDidLeave {
     }
   }
 
-  async startScan() {
-    try {
-      const permission = await this.checkPermission();
-      if (!permission) {
-        return;
-      }
-      await BarcodeScanner.hideBackground();
-      document.querySelector('body').classList.add('scanner-active');
-      this.content_visibility = 'hidden';
-      const result = await BarcodeScanner.startScan();
-      console.log(result);
-      BarcodeScanner.showBackground();
-      document.querySelector('body').classList.remove('scanner-active');
-      this.content_visibility = '';
-      if (result?.hasContent) {
-        this.scannedQRResult = result.content;
-        console.log(this.scannedQRResult);
-      }
-    } catch (e) {
-      console.log(e);
-      this.stopScan();
-    }
+  startScan() {
+    debugger
+    this.router.navigateByUrl('/dashboard/scan-qr');
+    // try {
+    //   const permission = await this.checkPermission();
+    //   if (!permission) {
+    //     return;
+    //   }
+    //   await BarcodeScanner.hideBackground();
+    //   document.querySelector('body').classList.add('scanner-active');
+    //   this.content_visibility = 'hidden';
+    //   const result = await BarcodeScanner.startScan();
+    //   console.log(result);
+    //   BarcodeScanner.showBackground();
+    //   document.querySelector('body').classList.remove('scanner-active');
+    //   this.content_visibility = '';
+    //   if (result?.hasContent) {
+    //     this.scannedQRResult = result.content;
+    //     console.log(this.scannedQRResult);
+    //   }
+    // } catch (e) {
+    //   console.log(e);
+    //   this.stopScan();
+    // }
   }
 
   stopScan() {
