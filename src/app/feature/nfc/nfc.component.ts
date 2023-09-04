@@ -8,7 +8,7 @@ import { AlertController, Platform } from '@ionic/angular';
   styleUrls: ['./nfc.component.scss'],
 })
 export class NfcComponent  implements OnInit {
-
+  event:any;
   constructor(private nfc: NFC,private alertController: AlertController, private platform:Platform) {
     this.platform.ready().then(() => {
       this.scanNFC();
@@ -20,15 +20,21 @@ export class NfcComponent  implements OnInit {
   }
 
   scanNFC(){
-    this.nfc.addNdefListener(() => {
-      this.presentAlert('ok');
-    }, (err) => {
-      this.presentAlert('ko' + err);
-    }).subscribe((event) => {
-      console.log(event);
-      console.log(JSON.stringify(event));
-      this.presentAlert('Il messaggio contiene' + event.tag + ' ' + this.nfc.bytesToHexString(event.tag.id));
-    });
+    this.presentAlert('ok');
+    // this.nfc.addNdefListener(() => {
+    //   this.presentAlert('ok');
+    // }, (err) => {
+    //   this.presentAlert('ko' + err);
+    // }).subscribe((event) => {
+    //   console.log(event);
+    //   console.log(JSON.stringify(event));
+
+    //   this.presentAlert('Il messaggio contiene' + event.tag + ' ' + this.nfc.bytesToHexString(event.tag.id));
+    // });
+    debugger
+    this.nfc.addNdefListener().subscribe((res)=>{
+      this.event = res;
+    })
   }
 
   async presentAlert(mess) {

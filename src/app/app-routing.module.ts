@@ -10,7 +10,6 @@ const routes: Routes = [
   { path: '', pathMatch:'full', redirectTo:'login'},
   {
     path: 'dashboard',
-    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./feature/feature.module').then((m) => m.FeatureModule),
   },
