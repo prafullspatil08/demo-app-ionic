@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SafeUrl } from '@angular/platform-browser';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
-import { MenuController, ToastController } from '@ionic/angular';
+import { MenuController, ToastController, ViewDidLeave } from '@ionic/angular';
 
 @Component({
   selector: 'app-qr-code',
   templateUrl: './qr-code.component.html',
   styleUrls: ['./qr-code.component.scss'],
 })
-export class QrCodeComponent implements OnInit {
+export class QrCodeComponent implements OnInit, ViewDidLeave {
   qrCodeString!: string;
   user: any;
   public qrCodeLink: SafeUrl = '';
@@ -17,6 +17,9 @@ export class QrCodeComponent implements OnInit {
   content_visibility = '';
   qrCodeForm!:FormGroup;
   constructor(private menuCtrl: MenuController, private toastController: ToastController) {}
+  ionViewDidLeave(): void {
+    this.stopScan();
+  }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
