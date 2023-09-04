@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content id="main-content" [style.visibility]="content_visibility">
+<ion-content id="main-content" >
   <div class="form-group" style="padding: 15px 10px">
     <form [formGroup]="qrCodeForm">
       <ion-input
@@ -34,12 +34,6 @@
     Scan QR Code
   </ion-button>
   
-
-  <ion-item *ngIf="scannedQRResult">
-    <ion-label class="ion-text-wrap"
-      >Scanned Result: {{ scannedQRResult }}</ion-label
-    >
-  </ion-item>
 </ion-content>
 
 <ion-menu side="end" menuId="qr-menu" contentId="main-content">

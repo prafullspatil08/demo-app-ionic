@@ -1,3 +1,17 @@
-<p>
-  scan-qr works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/dashboard/qr"></ion-back-button>
+    </ion-buttons>
+    <ion-title><ion-icon name="scan-outline"></ion-icon> Scan QR Code </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [style.visibility]="content_visibility">
+  <div class="content-center">
+  <ion-item *ngIf="scannedQRResult">
+    <ion-label class="ion-text-wrap"
+      >Scanned Result: {{ scannedQRResult }}</ion-label
+    >
+  </ion-item>
+</div>
+</ion-content>
