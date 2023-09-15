@@ -96,8 +96,13 @@ export class ExpenseListComponent implements OnInit {
         role: 'destructive',
         icon: 'create-sharp',
         handler: () => {
-          this.expenseList= this.expenseList?.filter((item)=> item?.id == id)
-          this.expenseForm.patchValue(this.expenseList[0])
+          this.expenseList.forEach((expense:any)=>{
+            if(expense?.id == id){
+              this.expenseForm.patchValue(expense)
+              this.expenseList= this.expenseList?.filter((item)=> item?.id != id)
+              return
+            }
+          })
         }
       }, {
         text: 'Cancel',

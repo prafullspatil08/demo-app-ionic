@@ -31,7 +31,6 @@ export class NfcComponent  implements OnInit {
 
     //   this.presentAlert('Il messaggio contiene' + event.tag + ' ' + this.nfc.bytesToHexString(event.tag.id));
     // });
-    debugger
     this.nfc.addNdefListener().subscribe((res)=>{
       this.event = res;
     })
