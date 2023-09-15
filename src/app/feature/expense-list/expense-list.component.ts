@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActionSheetController, ToastController } from '@ionic/angular';
-import { LoginService } from 'src/app/services/login.service';
+import { ActionSheetController, IonItemSliding, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-todo-list',
@@ -65,7 +64,8 @@ export class ExpenseListComponent implements OnInit {
     }
   }
 
- async deleteItem(id:any){
+ async deleteItem(id:any,slidingEl: IonItemSliding){
+  slidingEl.close();
     const actionSheet = await this.actionSheetController.create({
       header: 'Are you sure you want to delete this expense?',
       buttons: [{
@@ -87,9 +87,29 @@ export class ExpenseListComponent implements OnInit {
     await actionSheet.present();
   }
 
-  editItem(id:any){
-    this.expenseList= this.expenseList?.filter((item)=> item?.id == id)
-    this.expenseForm.patchValue(this.expenseList[0])
+  async editItem(id:any,slidingEl: IonItemSliding){
+    slidingEl.close();
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Are you sure you want to edit this expense?',
+      buttons: [{
+        text: 'Edit',
+        role: 'destructive',
+        icon: 'create-sharp',
+        handler: () => {
+          this.expenseList= this.expenseList?.filter((item)=> item?.id == id)
+          this.expenseForm.patchValue(this.expenseList[0])
+        }
+      }, {
+        text: 'Cancel',
+        icon: 'close',
+        role: 'cancel',
+        handler: () => {
+          // Nothing to do, action sheet is automatically closed
+         }
+      }]
+    });
+    await actionSheet.present();
+  
   }
 
   cancel(){

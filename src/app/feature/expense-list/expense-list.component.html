@@ -56,7 +56,7 @@
   <ion-content>
     <div *ngIf="expenseList?.length === 0" class="text-center">No Expenses</div>
     <ion-list *ngFor="let expense of expenseList">
-      <ion-item-sliding>
+      <ion-item-sliding #slidingBooking>
         <ion-item>
           <ion-label>{{ expense.title }}</ion-label>
           <ion-label>{{ expense.amount | currency : "INR" }}</ion-label>
@@ -64,11 +64,11 @@
         </ion-item>
 
         <ion-item-options side="end">
-          <ion-item-option color="primary" (click)="editItem(expense?.id)"
-            ><ion-icon name="create-outline"></ion-icon
+          <ion-item-option color="primary" (click)="editItem(expense?.id,slidingBooking)"
+            ><ion-icon name="create-sharp"></ion-icon
           ></ion-item-option>
-          <ion-item-option color="danger" (click)="deleteItem(expense?.id)"
-            ><ion-icon name="trash-outline"></ion-icon
+          <ion-item-option color="danger" (click)="deleteItem(expense?.id,slidingBooking)"
+            ><ion-icon name="trash-sharp"></ion-icon
           ></ion-item-option>
         </ion-item-options>
       </ion-item-sliding>
