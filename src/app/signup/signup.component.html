@@ -1,3 +1,9 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start" defaultHref="/login"></ion-back-button>
+    <ion-title> Signup </ion-title>
+  </ion-toolbar>
+</ion-header>
 <div class="content-center">
   <ion-card style="width: 32rem">
     <ion-card-header style="border-bottom: 1px solid rgb(216, 215, 215)">
@@ -25,14 +31,26 @@
         </div>
         <div class="form-group">
           <ion-input
-          [type]="!isShowPassword ? 'password' : 'text'"
+            [type]="!isShowPassword ? 'password' : 'text'"
             label="Password"
             formControlName="password"
             labelPlacement="floating"
             errorText="Invalid password"
           ></ion-input>
-          <div class="hide-show-icon" *ngIf="!isShowPassword" (click)="showPassword()">Show Password</div>
-          <div class="hide-show-icon" *ngIf="isShowPassword" (click)="showPassword()">Hide Password</div>
+          <div
+            class="hide-show-icon"
+            *ngIf="!isShowPassword"
+            (click)="showPassword()"
+          >
+            Show Password
+          </div>
+          <div
+            class="hide-show-icon"
+            *ngIf="isShowPassword"
+            (click)="showPassword()"
+          >
+            Hide Password
+          </div>
         </div>
         <div class="form-group">
           <ion-input
@@ -44,7 +62,12 @@
           ></ion-input>
         </div>
         <div class="text-center">
-          <ion-button [disabled]="!signupForm?.valid" (click)="signup()" shape="round">Create New Account</ion-button>
+          <ion-button
+            [disabled]="!signupForm?.valid"
+            (click)="signup()"
+            shape="round"
+            >Create New Account</ion-button
+          >
           <div>
             <a routerLink="/login">back to login</a>
           </div>
