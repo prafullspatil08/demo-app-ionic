@@ -57,7 +57,6 @@ export class QrCodeComponent implements OnInit {
 
   startScan() {
     this.router.navigateByUrl('/dashboard/scan-qr');
-   
   }
 
  

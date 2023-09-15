@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
-import { ViewDidLeave, ViewWillEnter } from '@ionic/angular';
+import { AlertController, ViewDidLeave, ViewWillEnter } from '@ionic/angular';
 
 @Component({
   selector: 'app-scan-qr',
@@ -10,7 +11,7 @@ import { ViewDidLeave, ViewWillEnter } from '@ionic/angular';
 export class ScanQrComponent  implements OnInit,ViewWillEnter,ViewDidLeave {
   scannedQRResult: any;
   content_visibility:any;
-  constructor() { }
+  constructor(private alertController: AlertController, private router:Router) { }
   ionViewWillEnter(): void {
    this.startScanning();
   }
@@ -25,9 +26,10 @@ export class ScanQrComponent  implements OnInit,ViewWillEnter,ViewDidLeave {
         // the user granted permission
         return true;
       }
+      this.alertMessage();
       return false;
     } catch (e) {
-      console.log(e);
+      this.alertMessage();
       return false;
     }
   }
@@ -36,6 +38,7 @@ export class ScanQrComponent  implements OnInit,ViewWillEnter,ViewDidLeave {
      try {
       const permission = await this.checkPermission();
       if (!permission) {
+        this.alertMessage();
         return;
       }
       await BarcodeScanner.hideBackground();
@@ -52,6 +55,7 @@ export class ScanQrComponent  implements OnInit,ViewWillEnter,ViewDidLeave {
       }
     } catch (e) {
       console.log(e);
+      this.alertMessage();
       this.stopScan();
     }
   }
@@ -69,5 +73,14 @@ export class ScanQrComponent  implements OnInit,ViewWillEnter,ViewDidLeave {
 
   ionViewDidLeave(): void {
     this.stopScan();
+  }
+  async alertMessage(){
+    const alert = await this.alertController.create({
+      header: 'Alert',
+      message: 'Permission Needed!',
+      buttons: ['OK'],
+    });
+    this.router.navigate(['/dashboard/qr'])
+    await alert.present();
   }
 }
